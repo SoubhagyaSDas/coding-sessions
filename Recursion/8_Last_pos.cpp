@@ -31,15 +31,9 @@ int last_pos(int* a, int size, int num) {
     }
 
     int position = last_pos(a + 1, size - 1, num);
-    if(a[0] == num) {
+    if(a[size] == num) {
         if(position == -1) {
             return 1;
-        } else {
-            return position + 1;
-        }
-    } else {
-        if(position == -1) {
-            return -1;
         } else {
             return position + 1;
         }
