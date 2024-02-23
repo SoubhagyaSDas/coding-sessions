@@ -21,7 +21,7 @@ string replaced(const string& original, const string& toreplace, const string& r
     string new_str = original;
     new_str.replace(findPos, toreplace.length(), replacement); // replace the position starting from the position where the substring was found, till the position where the substring ends
 
-    return replaced(original, toreplace, replacement, findPos + replacement.length());
+    return replaced(new_str, toreplace, replacement, findPos + replacement.length());
 }
 
 int main() {
