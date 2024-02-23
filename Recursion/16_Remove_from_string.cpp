@@ -5,6 +5,10 @@ using namespace std;
 
 string removed_str(const string& str, const string& toRemove, size_t pos = 0) {
 
+    if(pos == string::npos) {
+        return str;
+    }
+
     size_t findPos = str.find(toRemove, pos);
 
     if(findPos == string::npos) {
@@ -14,6 +18,7 @@ string removed_str(const string& str, const string& toRemove, size_t pos = 0) {
     string remove_str = str;
     remove_str.erase(findPos, toRemove.length());
     return removed_str(remove_str, toRemove, findPos);
+
 }
 
 int main() {
