@@ -1,31 +1,39 @@
 #include <iostream>
-#include <string>
-
 using namespace std;
 
-string removed_str(const string& str, const string& toRemove, size_t pos = 0) {
+void removeX(char s[]) {
+	if (s[0] == '\0') {
+		return;
+	}
 
-    size_t findPos = str.find(toRemove, pos);
+	if (s[0] != 'x') {
+		removeX(s + 1);
+	} else {
+		int i = 1;
+		for (; s[i] != '\0'; i++) {
+			s[i - 1] = s[i];
+		}
+		s[i - 1] = s[i];
+		removeX(s);
+	}
+}
 
-    if(findPos == string::npos) {
-        return str;
-    } 
-
-    string remove_str = str;
-    remove_str.erase(findPos, toRemove.length());
-    return removed_str(remove_str, toRemove, findPos);
+int length(char s[]) {
+	if (s[0] == '\0') {
+		return 0;
+	}
+	int smallStringLength = length(s + 1);
+	return 1 + smallStringLength;
 }
 
 int main() {
-    string original, toremove, manipulated;
-    cout << "Enter the string: ";
-    getline(cin, original);
+	char str[100];
+	cin >> str;
 
-    cout << "\nEnter the substring to remove: ";
-    cin >> toremove;
-
-    manipulated = removed_str(original, toremove);
-    cout << "\nNew manipulated string is: " << manipulated << endl;
-
-    return 0;
+	int l = length(str);
+	cout << l << endl;
+	removeX(str);
+	cout << str << endl;
+	l = length(str);
+	cout << l << endl;
 }
