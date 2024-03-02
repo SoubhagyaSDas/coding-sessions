@@ -2,24 +2,26 @@
 
 using namespace std;
 
-void removeDuplicates(char s[]) {
-    // base case
-    if (s[0] == '\0') {
+void removeDuplicate(char str[]) {
+    if (str[0] == '\0') {
         return;
     }
 
-    // induction hypothesis
-   // if (s[0] == )
+    int i = 1;
+
+    if (str[i] == str[i + 1]) {
+        str[i - 1] = str[i];
+    }
 
 
 }
 
 int main() {
-    char s[100];
+    char str[100];
     cout << "Enter the string: ";
-    cin >> s;
+    cin >> str;
 
-    removeDuplicates(s);
-    cout << "Updated string: " << s << endl;
+    removeDuplicate(str);
+    cout << "Updated string: " << str << endl;
     return 0;
 }
